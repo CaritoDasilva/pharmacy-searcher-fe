@@ -1,25 +1,44 @@
-import React, { useEffect, useState } from 'react'
+import React, { CSSProperties, useEffect, useState } from 'react'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
+import Swal from 'sweetalert2'
+// import styles from '../styles/Map.module.scss'
+import withReactContent from 'sweetalert2-react-content'
+import PharmacyDetail from './Dialogs/PharmacyDetail'
+import { ILocation, IMapProps, IPharmacy } from '../interfaces'
 
+const MySwal = withReactContent(Swal)
 
-const Map = (data) => {
-    console.log("🚀 ~ file: Map.tsx ~ line 6 ~ Map ~ data", data)
-    const [defaultCenter, setDefaultCenter] = useState({ lat: -33.487576, lng: -70.6064527 })
-    const mapStyles = {
-        height: '50vh',
-        width: '100%'
+const Map = (data: IMapProps) => {
+    const { location, markers } = data;
+    const [defaultCenter, setDefaultCenter] = useState<ILocation>({ lat: -33.487576, lng: -70.6064527 })
+    const mapStyles: CSSProperties = {
+        overflow: 'hidden',
+        height: '520px',
+        width: '100%',
+        position: 'absolute',
+        top: '27%',
+        left: '0'
     }
-    useEffect(() => {
-        if (data.lat && data.lng) {
-            setDefaultCenter({
-                lat: data.lat,
-                lng: data.lng
-            })
 
+
+    useEffect(() => {
+        if (location.lat && location.lng) {
+            setDefaultCenter(location)
         }
 
     }, [data])
-    console.log("🚀 ~ file: Map.tsx ~ line 17 ~ Map ~ defaultCenter", defaultCenter)
+
+    const onCloseModal = () => {
+        MySwal.close()
+    }
+
+    const openModal = (local: IPharmacy) => {
+        MySwal.fire({
+            html: (<PharmacyDetail localDetail={local} onClose={onCloseModal} />),
+            allowOutsideClick: false,
+            showConfirmButton: false
+        })
+    }
 
     return (
         <LoadScript googleMapsApiKey='AIzaSyCA17zPndKdFUMacIBucG085mrEbAXr4sE'>
@@ -27,8 +46,13 @@ const Map = (data) => {
                 mapContainerStyle={mapStyles}
                 zoom={13}
                 center={defaultCenter}
+                clickableIcons={true}
             >
-                <Marker position={defaultCenter} />
+                {markers.length > 0 ? markers.map((marker, i) => {
+                    return (
+                        <Marker key={i} position={{ lat: Number(marker.local_lat), lng: Number(marker.local_lng) }} clickable={true} onClick={() => { openModal(marker) }} />
+                    )
+                }) : <Marker position={defaultCenter} />}
             </GoogleMap>
         </LoadScript>
     )

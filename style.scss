@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+
+:root {
+    --consorcio-green: #84BD00;
+    --consorcio-blue: #003DA5;
+    --title-text: #333333;
+    --pinkish-grey: #bbbbbb;
+    --black-menu: #262626;
+    --bg-primary: #eeeeee;
+    --white: #ffffff;
+    --p-gray: #5c5c5c
+  }
+
+body {
+    background-color: var(--bg-primary);
+}
+
+h1 {
+    color: var(--title-text);
+    font: Bold 30px "Lato";
+    text-align: center;
+    letter-spacing: 0px;
+}
+
+p {
+    color: var(--p-gray);
+    font: 15px "Lato";
+}
+
+.labels {
+    text-align: left;
+    font: Bold 14px/17px Lato;
+    letter-spacing: 0px;
+    color: var(--title-text);
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+
+
+.map-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    // width: 60%;
+    background-color: var(--white);    
+    padding: 20px;    
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    height: 650px;
+    .search-btn {
+        // border-bottom-left-radius: 0;
+        // border-top-left-radius: 0;
+        background-color: var(--consorcio-green); 
+        border: none;
+        // height: 38px;
+    }
+    .pharmacy-search-container {
+        display: flex;
+        .inputSearch {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
+    // form {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    // }
+    
+}
+
+.btn-consorcio {
+    width: 140px;
+    max-width: 100%;
+    background-color: var(--consorcio-green);
+    border: none;
+}
