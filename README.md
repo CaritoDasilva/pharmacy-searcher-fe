@@ -5,7 +5,7 @@
 | Plataforma | Links |
 | ------ | ------ |
 | GitHub | https://github.com/CaritoDasilva/pharmacy-searcher-fe |
-| Vercel Deploy | https://pharmacy-searcher-fe-l6gkelmc0.vercel.app/ |
+| Vercel Deploy | https://pharmacy-searcher-fe-noscg80hj.vercel.app/ |
 | Portafolio | https://www.caritodasilva.work/ |
 
 
