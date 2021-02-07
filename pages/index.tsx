@@ -69,7 +69,7 @@ const IndexPage = () => {
 
   return (
 
-    <Layout title="Home | Next.js + TypeScript Example">
+    <Layout title="Home | Buscador de farmacias de turno">
       <Col md={10} sm={12} className="map-container" >
         {
           communes && communes?.length > 0 && (
@@ -93,7 +93,7 @@ const IndexPage = () => {
                     <InputGroup className="mb-3">
                       <FormControl
                         onChange={(e) => setInputSearchValue(e.target.value)}
-                        placeholder="Recipient's username"
+                        placeholder="Ingresa nombre de tienda"
                         aria-label="Recipient's username"
                         aria-describedby="basic-addon2"
                       />
