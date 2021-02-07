@@ -1,7 +1,6 @@
 import React, { CSSProperties, useEffect, useState } from 'react'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 import Swal from 'sweetalert2'
-// import styles from '../styles/Map.module.scss'
 import withReactContent from 'sweetalert2-react-content'
 import PharmacyDetail from './Dialogs/PharmacyDetail'
 import { ILocation, IMapProps, IPharmacy } from '../interfaces'
@@ -25,7 +24,6 @@ const Map = (data: IMapProps) => {
         if (location.lat && location.lng) {
             setDefaultCenter(location)
         }
-
     }, [data])
 
     const onCloseModal = () => {
@@ -41,7 +39,7 @@ const Map = (data: IMapProps) => {
     }
 
     return (
-        <LoadScript googleMapsApiKey='AIzaSyCA17zPndKdFUMacIBucG085mrEbAXr4sE'>
+        <LoadScript googleMapsApiKey={`${process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY}`}>
             <GoogleMap
                 mapContainerStyle={mapStyles}
                 zoom={13}
