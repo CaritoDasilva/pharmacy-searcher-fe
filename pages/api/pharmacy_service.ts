@@ -1,5 +1,4 @@
 import axios from 'axios';
-import headers from '../../next.config';
 
 export default class PharmacyService {
 
