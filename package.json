@@ -5,7 +5,7 @@
     "dev": "env-cmd -f .env.development next",
     "build:dev": "env-cmd -f .env.development next build && next export -o build/",
     "buid:dprod": "env-cmd -f .env.production next build && next export -o build/",
-    "build": "next build",
+    "build": "env-cmd -f .env.development next build && next export -o build/",
     "start": "next start",
     "type-check": "tsc",
     "test": "jest --runInBand --coverage",
