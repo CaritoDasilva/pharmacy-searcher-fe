@@ -46,7 +46,7 @@ const Map = (data: IMapProps) => {
                 center={defaultCenter}
                 clickableIcons={true}
             >
-                {markers.length > 0 ? markers.map((marker, i) => {
+                {markers && markers.length > 0 ? markers.map((marker, i) => {
                     return (
                         <Marker key={i} position={{ lat: Number(marker.local_lat), lng: Number(marker.local_lng) }} clickable={true} onClick={() => { openModal(marker) }} />
                     )

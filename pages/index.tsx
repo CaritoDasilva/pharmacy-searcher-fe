@@ -72,7 +72,7 @@ const IndexPage = () => {
     <Layout title="Home | Next.js + TypeScript Example">
       <Col md={10} sm={12} className="map-container" >
         {
-          communes.length > 0 && (
+          communes && communes?.length > 0 && (
             <Form className='col-12'>
               <Row>
                 <Col md={5} sm={12}>
