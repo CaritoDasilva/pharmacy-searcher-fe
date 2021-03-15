@@ -1,11 +1,11 @@
-# Cencosud API Test
+# Consorcio Test Frontend
 
 # Links
 
 | Plataforma | Links |
 | ------ | ------ |
 | GitHub | https://github.com/CaritoDasilva/pharmacy-searcher-fe |
-| Vercel Deploy | https://pharmacy-searcher-fe-l6gkelmc0.vercel.app/ |
+| Vercel Deploy | https://pharmacy-searcher-fe-h49c40ynw.vercel.app/ |
 | Portafolio | https://www.caritodasilva.work/ |
 
 
