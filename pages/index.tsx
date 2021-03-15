@@ -4,6 +4,7 @@ import PharmacyService from './api/pharmacy_service'
 import Map from '../components/Map';
 import { ICommune, ILocation, IPharmacy } from '../interfaces'
 import { Button, Col, Form, FormControl, InputGroup, Row } from 'react-bootstrap'
+import Loader from '../components/Loader';
 
 const IndexPage = () => {
   const pharmacy_service = new PharmacyService()
@@ -72,7 +73,7 @@ const IndexPage = () => {
     <Layout title="Home | Buscador de farmacias de turno">
       <Col md={10} sm={12} className="map-container" >
         {
-          communes && communes?.length > 0 && (
+          communes && communes?.length === 0 ? (
             <Form className='col-12'>
               <Row>
                 <Col md={5} sm={12}>
@@ -107,16 +108,16 @@ const IndexPage = () => {
               </Row>
             </Form>
 
-          )
+          ) : <Loader />
         }
-        {!loader && Object.values(coordinates).length > 0 && (
+        {!loader && Object.values(coordinates).length > 0 ? (
           <div>
 
             <Map location={locationPharmacy} markers={pharmacyByCommune} />
           </div>
 
 
-        )
+        ) : <Loader />
         }
 
       </Col>
